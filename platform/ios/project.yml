@@ -1,0 +1,24 @@
+name: WeatherDemo
+options:
+  bundleIdPrefix: com.example.weather
+  deploymentTarget:
+    iOS: "15.0"
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  WeatherDemo:
+    type: application
+    platform: iOS
+    sources:
+      - ios
+    settings:
+      base:
+        INFOPLIST_FILE: ios/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.weather
+    dependencies:
+      - framework: ../shared/app/build/bin/iosSimulatorArm64/releaseFramework/shared.framework
+        embed: true

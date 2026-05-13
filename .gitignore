@@ -1,0 +1,20 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Kotlin
+*.class
+*.log
+*.ctxt
+
+# Local configuration
+local.properties
+
+# Presentation (local only)
+presentation/
