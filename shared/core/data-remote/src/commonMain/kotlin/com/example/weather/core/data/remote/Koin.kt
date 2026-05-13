@@ -1,8 +1,9 @@
 package com.example.weather.core.data.remote
 
+import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
 val coreDataRemoteModule = module {
-    single { HttpClientFactory() }
+    singleOf(::HttpClientFactory)
     single { get<HttpClientFactory>().create() }
 }
