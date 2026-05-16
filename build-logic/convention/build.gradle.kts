@@ -2,7 +2,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.example.plugins"
+group = "com.example.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -18,12 +18,12 @@ dependencies {
 gradlePlugin {
     plugins {
         register("kmpLibrary") {
-            id = "com.example.kmp.library"
-            implementationClass = "com.example.plugins.KmpLibraryPlugin"
+            id = "demo.kmp"
+            implementationClass = "KmpConventionPlugin"
         }
-        register("kmpComposeLibrary") {
-            id = "com.example.kmp.compose.library"
-            implementationClass = "com.example.plugins.KmpComposeLibraryPlugin"
+        register("cmpLibrary") {
+            id = "demo.cmp"
+            implementationClass = "CmpConventionPlugin"
         }
     }
 }

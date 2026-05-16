@@ -11,4 +11,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "gradlePlugins"
+rootProject.name = "build-logic"
+include(":convention")
