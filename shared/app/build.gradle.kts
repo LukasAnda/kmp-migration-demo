@@ -1,9 +1,16 @@
 plugins {
-    id("com.example.kmp.compose.library")
+    id("demo.cmp")
 }
 
 kotlin {
-    // Framework binaries configured by plugin (every module has one - the slow pattern)
+    // Only shared:app produces the iOS framework
+    // Submodules compile to .klib only (configured in KmpConventionPlugin)
+    listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
+        target.binaries.framework {
+            baseName = "shared"
+            isStatic = true
+        }
+    }
 
     sourceSets {
         commonMain.dependencies {

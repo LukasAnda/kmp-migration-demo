@@ -11,23 +11,14 @@ plugins {
 allprojects {
     group = "com.example.weather"
     version = "1.0.0"
-
-    repositories {
-        google()
-        mavenCentral()
-    }
 }
 
 tasks.register("buildAllIosFrameworks") {
-    description = "Build iOS frameworks for all modules (demonstrates the slow pattern)"
+    description = "Build iOS frameworks (only umbrella module produces framework in step-4)"
     group = "build"
 
-    dependsOn(
-        gradle.includedBuild("gradlePlugins").task(":assemble")
-    )
-
     doLast {
-        println("Building all iOS frameworks...")
+        println("Building iOS frameworks...")
     }
 }
 

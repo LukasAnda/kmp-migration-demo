@@ -21,19 +21,11 @@ class KmpConventionPlugin : Plugin<Project> {
                 }
             }
 
+            // Only declare iOS targets - submodules compile to .klib only
+            // Framework production moved to shared:app (the umbrella module)
             iosX64()
             iosArm64()
             iosSimulatorArm64()
-
-            // iOS framework in every module - this is the SLOW pattern we're fixing in step-4
-            // Use "shared" as baseName for :shared:app to match project.yml expectations
-            val frameworkBaseName = if (project.path == ":shared:app") "shared" else project.name
-            listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { iosTarget ->
-                iosTarget.binaries.framework {
-                    baseName = frameworkBaseName
-                    isStatic = true
-                }
-            }
 
             sourceSets.all {
                 languageSettings.optIn("kotlin.RequiresOptIn")

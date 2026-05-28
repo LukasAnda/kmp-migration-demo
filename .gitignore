@@ -16,5 +16,8 @@ build/
 # Local configuration
 local.properties
 
+# Lighthouse cache
+.lighthouse/
+
 # Presentation (local only)
 presentation/
